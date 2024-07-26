@@ -86,7 +86,7 @@ tocopen = false
 
 [params.analytics.google]
 SiteVerificationTag = "G-NT46VVLKL2"
-googleAnalytics: "G-NT46VVLKL"
+googleAnalytics= "G-NT46VVLKL"
 [params.analytics.bing]
 SiteVerificationTag = "XYZabc"
 
