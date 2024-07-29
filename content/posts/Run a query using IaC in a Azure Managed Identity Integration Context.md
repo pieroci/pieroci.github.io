@@ -2,7 +2,7 @@
 title: "Automating Managed Identity Integration for SQL Server with Terraform and Azure DevOps"
 description: "Implementing an Azure Sql Server comunication with managed identity and IaC"
 summary: If your security requirements mandate integrating managed identities on your Azure resources with a SQL Server, achieving this with Terraform can be challenging due to limitations reported in the Microsoft's documentation... but let me show you how can achieve that!
-date: 2021-01-20
+date: 2024-07-23
 tags: [azure, terraform, sqlserver, managedidentity, Azure Devops,  run query with terraform, powershell and Terraform]
 categories: ["terraform", "DevOps"]
 series: ["Terraform, Devops"]
@@ -48,9 +48,9 @@ Our target is to allow a resource (an azure function app) to query our sql serve
 >
 > Prerequisites: 
 >
-> - For this tutorial, I already created the “sql-admin” Entra ID Group: this group contains who I want to be the Sql Server Administrator. You must add your Service Connection’s Service Principal ID to this group, to enable launching queries from your Azure DevOps pipelines. 
+> - For this tutorial, I already created the “sql-admin” Entra ID Group: this group contains who I want to be the Sql Server Administrator. You must add your Service Connection’s Service Principal ID to this group, to enable launching a CREATE USER/LOGIN queries from your Azure DevOps pipelines.  In Short: if your sqlServer is setted with the Ms Entra Administrator , only an Admin can add users to dbs then this step it's required in this article. After the terraform apply you'll see the Entra group in your sql server in portal configurations like the below image. 
 >
->  
+>  ![image-20240729094905330](C:\Users\piero.ciula\AppData\Roaming\Typora\typora-user-images\image-20240729094905330.png)
 >
 > - I also created the “sql-reader” Group, with Directory Reader role. You should add to this group all the Azure SQL Server resources that need to use the external Entra ID identity provider. (https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-directory-readers-role?view=azuresql#assigning-the-directory-readers-role ). In short: A “FROM EXTERNAL PROVIDER” query indicates to SQL Server it must search the user’s identity in the Microsoft Entra directories. But your Sql Server need reader privilege on Entra Directory. 
 
