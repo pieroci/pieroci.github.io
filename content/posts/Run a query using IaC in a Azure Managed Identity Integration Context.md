@@ -64,7 +64,7 @@ Our target is to allow a resource (an azure function app) to query our sql serve
 >
 >- For this tutorial, I already created the “sql-admin” Entra ID Group: this group contains who I want to be the Sql Server Administrator. You must add your Service Connection’s Service Principal ID to this group, to enable launching a CREATE USER/LOGIN queries from your Azure DevOps pipelines.  In Short: if your sqlServer is setted with the Ms Entra Administrator , only an Admin can add users to dbs then this step it's required in this article. After the terraform apply you'll see the Entra group in your sql server in portal configurations like the below image. 
 >
->![Hello](/asda4352243243.png)
+>![aadGroup](../asda4352243243.png)
 >
 >- I also created the “sql-reader” Group, with Directory Reader role. You should add to this group all the Azure SQL Server resources that need to use the external Entra ID identity provider. (https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-directory-readers-role?view=azuresql#assigning-the-directory-readers-role ). In short: A “FROM EXTERNAL PROVIDER” query indicates to SQL Server it must search the user’s identity in the Microsoft Entra directories. But your Sql Server need reader privilege on Entra Directory. 
 
