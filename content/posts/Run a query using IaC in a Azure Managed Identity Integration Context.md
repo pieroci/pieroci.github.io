@@ -12,7 +12,7 @@ TocOpen: false
 draft: true
 weight: 5
 cover:
-    image: "../../assets/img/8rpnb0ns.png" # image path/url
+    image: "../8rpnb0ns.png" # image path/url
     alt: "Automating Managed Identity Integration for SQL Server with Terraform and Azure DevOps" 
     caption: "Automating Managed Identity Integration for SQL Server with Terraform and Azure DevOps"
     relative: true # when using page bundles set this to true
@@ -271,7 +271,7 @@ Create a task like the following one on your DevOps Pipeline:
             }
             else 
             {
-                # Write-Output "Module $module already installed..." 
+                Write-Output "Module $module already installed..." 
             }
             
             Import-Module $module -ErrorAction Stop
@@ -595,19 +595,15 @@ Also, remember you can set your pipeline variable with secret=true to prevent th
             }
             else 
             {
-                # Write-Output "Module $module already installed..." 
+                Write-Output "Module $module already installed..." 
             }
-            # Importa il modulo nella sessione corrente
             Import-Module $module -ErrorAction Stop
 
-            # Recupera il percorso del modulo
             $modulePath = (Get-Module -Name $module -ErrorAction Stop).ModuleBase
 
-            # Aggiunge il percorso del modulo al PSModulePath
             $env:PSModulePath = $env:PSModulePath + ":$modulePath"
         }
         try {
-            # Retrieve the token
             $accessTokenSecureStringObj = ( Get-AzAccessToken -AsSecureString -ResourceUrl https://database.windows.net ).Token
             $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($accessTokenSecureStringObj)
             try{
