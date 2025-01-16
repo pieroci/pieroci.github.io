@@ -23,6 +23,21 @@ editPost:
     appendFilePath: true # to append file path to Edit link
 ---
 
+############################# UPDATE ####################################################
+
+### UPDATE 1/16/2025 : if your terraform version is >= to the 1.10 you have some error implementing this solution.
+
+Terraform 1.10 introduce the [ephemeral concept](https://github.com/hashicorp/terraform/blob/v1.10/CHANGELOG.md#1100-november-27-2024)  , making it more efficient and clear what can change between a plan and an apply.
+At the end of the article you can see the updates.
+
+### UPDATE 1/16/2025 : if your powershell version is >=12.
+
+Microsoft introduced a breaking change on the Get-AzAccessToken powershell cmdlet . Now the token will be managed as SecureString (object) and no more like String (primitive type).These change 
+
+########################################################################################
+
+**Intro**
+
 Managing an infrastructure with IaC can be very convenient.  
 
 IaC can enhance your productivity through automation, reduce manual errors, eliminate configuration drift and have many more benefits. 
@@ -534,4 +549,84 @@ Another security improvement could be treating the “AccessToken” variable as
 
 Maybe I'll make these improvements and search for a new strategy in a future article... 
 
-*For now: enjoy automation laziness and go grab a cup of coffee (or a beer, if you’re into that)!* 
+
+
+## #UPDATE WITH TERRAFORM >= 1.10#
+
+With "ephemeral" concept introducted by Terraform 1.10 there are a breaking change on that solution.
+Your ACCESS_TOKEN variable need to declared as a ephemeral in all of your flow:
+
+```terraform {linenos=true}
+variable "ACCESS_TOKEN" { 
+ type = string 
+ ephemeral = true
+}
+```
+
+With "ephemeral" the token doesn't being saved to terraform state: than it's that a security upgrade in our solution! 
+
+## #UPDATE WITH AZURE POWERSHELL >= 12
+
+Microsoft introduce a [breaking change](https://github.com/Azure/azure-powershell/issues/25533) in the Get-AzAccessToken function : the token will return as a SecureString and not like string.
+
+If your Azure Powershell version is 12 or above you will change the powershell task on your yaml pipeline like the following:
+
+Change your task like the following one on your DevOps Pipeline.
+
+What's the difference? The secure string token will be "decrypted" and passed in the environment variable.
+I know it's not properly a good security practice but remember you can't pass an object (the Token SecureString is the object we talking about) into the TF_VAR_ACCESS_TOKEN variable. 
+
+Also remember you can set your pipeline variable with "secret=true" to avoid from reading the token value on everyone have access to the pipeline.   
+
+```powershell
+  - task: AzurePowerShell@5
+    displayName: Get Access Token
+    inputs:
+      azureSubscription: ${{ parameters.serviceconnectionName }}
+      ScriptType: 'InlineScript'
+      azurePowerShellVersion: 'LatestVersion'
+      Inline: |
+        $VerbosePreference = 'SilentlyContinue'
+        $DebugPreference = 'SilentlyContinue'
+        $ErrorActionPreference = 'Stop'
+        $requiredModules = 'Az'
+        foreach ($module in $requiredModules) {
+            if (-not (Get-Module -ListAvailable -Name $module -ErrorAction Stop)) {
+                Install-Module -Name $module -Repository PSGallery -Force -AllowClobber -ErrorAction Stop
+            }
+            else 
+            {
+                # Write-Output "Module $module already installed..." 
+            }
+            # Importa il modulo nella sessione corrente
+            Import-Module $module -ErrorAction Stop
+
+            # Recupera il percorso del modulo
+            $modulePath = (Get-Module -Name $module -ErrorAction Stop).ModuleBase
+
+            # Aggiunge il percorso del modulo al PSModulePath
+            $env:PSModulePath = $env:PSModulePath + ":$modulePath"
+        }
+        try {
+            # Retrieve the token
+            $accessTokenSecureStringObj = ( Get-AzAccessToken -AsSecureString -ResourceUrl https://database.windows.net ).Token
+            $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($accessTokenSecureStringObj)
+            try{
+              $plaintextat = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+              Write-Host "##vso[task.setvariable variable=TF_VAR_ACCESS_TOKEN;]$plaintextat"
+            } finally 
+            {
+              [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+            }
+        } catch {
+            Write-Host "Error while retrieving the access token: $_"
+            throw
+        }
+
+```
+
+
+
+
+
+*Enjoy automation  and use your laziness to better automate your solution and avoid noised tasks... !* 
