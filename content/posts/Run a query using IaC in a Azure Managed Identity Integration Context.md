@@ -27,7 +27,7 @@ editPost:
 
 ### UPDATE: If your Terraform version is >= 1.10, you may encounter errors when implementing this solution.
 
-Terraform 1.10 introduces the concept of [ephemeral concept](https://github.com/hashicorp/terraform/blob/v1.10/CHANGELOG.md#1100-november-27-2024), making it more efficient and clearer what can change between a plan and an apply. At the end of this article, you will find the updates related to this change.
+Terraform 1.10 introduces the [ephemeral concept](https://github.com/hashicorp/terraform/blob/v1.10/CHANGELOG.md#1100-november-27-2024), making it more efficient and clearer what can change between a plan and an apply. At the end of this article, you will find the updates related to this change.
 
 ### UPDATE: if your powershell version is >=12.
 
