@@ -23,16 +23,15 @@ editPost:
     appendFilePath: true # to append file path to Edit link
 ---
 
-############################# UPDATE ####################################################
+############################# UPDATE 1/16/2025 ####################################################
 
-### UPDATE 1/16/2025 : if your terraform version is >= to the 1.10 you have some error implementing this solution.
+### UPDATE: If your Terraform version is >= 1.10, you may encounter errors when implementing this solution.
 
-Terraform 1.10 introduce the [ephemeral concept](https://github.com/hashicorp/terraform/blob/v1.10/CHANGELOG.md#1100-november-27-2024)  , making it more efficient and clear what can change between a plan and an apply.
-At the end of the article you can see the updates.
+Terraform 1.10 introduces the concept of [ephemeral concept](https://github.com/hashicorp/terraform/blob/v1.10/CHANGELOG.md#1100-november-27-2024), making it more efficient and clearer what can change between a plan and an apply. At the end of this article, you will find the updates related to this change.
 
-### UPDATE 1/16/2025 : if your powershell version is >=12.
+### UPDATE: if your powershell version is >=12.
 
-Microsoft introduced a breaking change on the Get-AzAccessToken powershell cmdlet . Now the token will be managed as SecureString (object) and no more like String (primitive type).These change 
+Microsoft introduced a breaking change in the Get-AzAccessToken PowerShell cmdlet. The token is now managed as a SecureString (object) rather than a String (primitive type).
 
 ########################################################################################
 
@@ -61,13 +60,13 @@ In this tutorial we will use the following technologies:
 Our target is to allow a resource (an azure function app) to query our sql server database in a complex security scenario, in which the authentication between our client and the database is only allowed via [managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview). 
 
 >
-> Prerequisites: 
+>Prerequisites: 
 >
-> - For this tutorial, I already created the “sql-admin” Entra ID Group: this group contains who I want to be the Sql Server Administrator. You must add your Service Connection’s Service Principal ID to this group, to enable launching a CREATE USER/LOGIN queries from your Azure DevOps pipelines.  In Short: if your sqlServer is setted with the Ms Entra Administrator , only an Admin can add users to dbs then this step it's required in this article. After the terraform apply you'll see the Entra group in your sql server in portal configurations like the below image. 
+>- For this tutorial, I already created the “sql-admin” Entra ID Group: this group contains who I want to be the Sql Server Administrator. You must add your Service Connection’s Service Principal ID to this group, to enable launching a CREATE USER/LOGIN queries from your Azure DevOps pipelines.  In Short: if your sqlServer is setted with the Ms Entra Administrator , only an Admin can add users to dbs then this step it's required in this article. After the terraform apply you'll see the Entra group in your sql server in portal configurations like the below image. 
 >
->  ![image-20240729094905330](C:\Users\piero.ciula\AppData\Roaming\Typora\typora-user-images\image-20240729094905330.png)
+>![Hello](/asda4352243243.png)
 >
-> - I also created the “sql-reader” Group, with Directory Reader role. You should add to this group all the Azure SQL Server resources that need to use the external Entra ID identity provider. (https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-directory-readers-role?view=azuresql#assigning-the-directory-readers-role ). In short: A “FROM EXTERNAL PROVIDER” query indicates to SQL Server it must search the user’s identity in the Microsoft Entra directories. But your Sql Server need reader privilege on Entra Directory. 
+>- I also created the “sql-reader” Group, with Directory Reader role. You should add to this group all the Azure SQL Server resources that need to use the external Entra ID identity provider. (https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-directory-readers-role?view=azuresql#assigning-the-directory-readers-role ). In short: A “FROM EXTERNAL PROVIDER” query indicates to SQL Server it must search the user’s identity in the Microsoft Entra directories. But your Sql Server need reader privilege on Entra Directory. 
 
  
 
@@ -553,8 +552,7 @@ Maybe I'll make these improvements and search for a new strategy in a future art
 
 ## #UPDATE WITH TERRAFORM >= 1.10#
 
-With "ephemeral" concept introducted by Terraform 1.10 there are a breaking change on that solution.
-Your ACCESS_TOKEN variable need to declared as a ephemeral in all of your flow:
+With the introduction of the "ephemeral" concept in Terraform 1.10, there is a breaking change in this solution. Your ACCESS_TOKEN variable needs to be declared as ephemeral in your entire workflow:
 
 ```terraform {linenos=true}
 variable "ACCESS_TOKEN" { 
@@ -563,20 +561,21 @@ variable "ACCESS_TOKEN" {
 }
 ```
 
-With "ephemeral" the token doesn't being saved to terraform state: than it's that a security upgrade in our solution! 
+With the "ephemeral" setting, the token is not saved to the Terraform state, which is a security improvement for your solution.
 
 ## #UPDATE WITH AZURE POWERSHELL >= 12
 
-Microsoft introduce a [breaking change](https://github.com/Azure/azure-powershell/issues/25533) in the Get-AzAccessToken function : the token will return as a SecureString and not like string.
 
-If your Azure Powershell version is 12 or above you will change the powershell task on your yaml pipeline like the following:
+Microsoft introduced a [breaking change](https://github.com/Azure/azure-powershell/issues/25533) in the Get-AzAccessToken function: the token is now returned as a SecureString instead of a regular string.
 
-Change your task like the following one on your DevOps Pipeline.
+If your Azure PowerShell version is 12 or above, you will need to modify the PowerShell task in your YAML pipeline as follows:
 
-What's the difference? The secure string token will be "decrypted" and passed in the environment variable.
-I know it's not properly a good security practice but remember you can't pass an object (the Token SecureString is the object we talking about) into the TF_VAR_ACCESS_TOKEN variable. 
+Update your task in the DevOps pipeline as shown below.
 
-Also remember you can set your pipeline variable with "secret=true" to avoid from reading the token value on everyone have access to the pipeline.   
+What’s the difference?
+The secure string token will be "decrypted" and passed as an environment variable. Although this is not an ideal security practice, keep in mind that you cannot pass an object (in this case, the SecureString token) directly into the TF_VAR_ACCESS_TOKEN variable.
+
+Also, remember you can set your pipeline variable with secret=true to prevent the token value from being exposed to anyone with access to the pipeline.  
 
 ```powershell
   - task: AzurePowerShell@5
@@ -629,4 +628,4 @@ Also remember you can set your pipeline variable with "secret=true" to avoid fro
 
 
 
-*Enjoy automation  and use your laziness to better automate your solution and avoid noised tasks... !* 
+*Enjoy automation and use your laziness to better automate your solutions and avoid tedious tasks!* 
