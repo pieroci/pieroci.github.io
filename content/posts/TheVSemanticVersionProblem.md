@@ -23,7 +23,7 @@ editPost:
   appendFilePath: true # to append file path to Edit link
 ---
 
-# The Irresistible Urge to Add a "v" to Semantic Versions – And Why to Avoid It
+# 
 
 This article was written to educate and encourage (but also to warn), and aims to get you thinking about the "v" prefix in semantic versions used to represent software versioning.
 
@@ -31,7 +31,7 @@ If you use the semantic versioning standard in your code to distinguish new soft
 
 ## Case Study
 
-In past releases from well-known and widely-used companies, problems (on a global scale) have occurred due to the use of “v” in semantic versions. Here are a few examples where this issue caused disruptions for minutes or even hours:
+Here are a few examples where this issue caused disruptions for minutes or even hours:
 
 - IBM - Terraform: https://github.com/hashicorp/terraform-provider-local/issues/408
 - Microsoft – Function Core Tool: https://github.com/Azure/azure-functions-core-tools/issues/4156
