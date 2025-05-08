@@ -1,7 +1,8 @@
 ---
-title: "The Irresistible Urge to Add a "v" to Semantic Versions – And Why to Avoid It"
+​---
+title: "The Irresistible Urge to Add a \"v\" to Semantic Versions – And Why to Avoid It"
 description: "In past releases from well-known and widely-used companies, problems (on a global scale) have occurred due to the use of “v” in semantic versions."
-summary: In past releases from well-known and widely-used companies, problems (on a global scale) have occurred due to the use of “v” in semantic versions.
+summary: "In past releases from well-known and widely-used companies, problems (on a global scale) have occurred due to the use of “v” in semantic versions."
 date: 2025-05-08
 tags: [git, semantic version]
 categories: ["git"]
@@ -12,16 +13,16 @@ TocOpen: false
 draft: true
 weight: 5
 cover:
-    image: "../vSemanticVers.png" # image path/url
-    alt: "The Irresistible Urge to Add a "v" to Semantic Versions – And Why to Avoid It" 
-    caption: "The Irresistible Urge to Add a "v" to Semantic Versions – And Why to Avoid It"
-    relative: true # when using page bundles set this to true
-    hidden: true # only hide on current single page
+  image: "../vSemanticVers.png" # image path/url
+  alt: "The Irresistible Urge to Add a \"v\" to Semantic Versions – And Why to Avoid It"
+  caption: "The Irresistible Urge to Add a \"v\" to Semantic Versions – And Why to Avoid It"
+  relative: true # when using page bundles set this to true
+  hidden: true # only hide on current single page
 editPost:
-    URL: "https://github.com/pieroci/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
-
+  URL: "https://github.com/pieroci/content"
+  Text: "Suggest Changes" # edit text
+  appendFilePath: true # to append file path to Edit link
+​---
 ---
 
 # The Irresistible Urge to Add a "v" to Semantic Versions – And Why to Avoid It
