@@ -1,5 +1,4 @@
 ---
-​---
 title: "The Irresistible Urge to Add a \"v\" to Semantic Versions – And Why to Avoid It"
 description: "In past releases from well-known and widely-used companies, problems (on a global scale) have occurred due to the use of “v” in semantic versions."
 summary: "In past releases from well-known and widely-used companies, problems (on a global scale) have occurred due to the use of “v” in semantic versions."
@@ -22,7 +21,6 @@ editPost:
   URL: "https://github.com/pieroci/content"
   Text: "Suggest Changes" # edit text
   appendFilePath: true # to append file path to Edit link
-​---
 ---
 
 # The Irresistible Urge to Add a "v" to Semantic Versions – And Why to Avoid It
