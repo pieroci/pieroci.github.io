@@ -59,7 +59,7 @@ What is Open Api ? From wikipedia:
 
 From the graph we can see how the specification is improved over the years. 
 
-![openapi](.\img\openapi_spec_evolution.png)
+![openapi](./img/openapi_spec_evolution.png)
 
 
 
@@ -77,19 +77,19 @@ Recently, the ApiOps approach (a GitOps methodology for APIs – see: https://le
 
 Only from NET 9 MS introduce a way to obtain the documentation also at compile time.
 
-![openapi](.\img\openapi_spec_release_evolution.png)
+![openapi](./img/openapi_spec_release_evolution.png)
 
 Here is the timeline chart showing the evolution of OpenAPI release approaches in the **Microsoft ecosystem.** Each line spans the years during which the approach has been in use and continues through 2025, indicating they are still relevant today.
 
 Nuget trends show a deep use of RunTime Generation in the last six months.(you can see it here - https://www.nuget.org/stats/packages/Swashbuckle.AspNetCore.Swagger?groupby=Version)
 
- ![openapi](.\img\swagger-stats.png)
+ ![openapi](./img/swagger-stats.png)
 
 Statistics must necessarily be interpreted: numerically it is not a very important data if we consider that part of the downloads are coming from automation pipelines and the different net version...).
 
 This number becomes important if we compare it with the OpenApi library used for the new Compile-Time feature  :
 
- The stats show the situation in the last six month.![openapi](.\img\openapi-stats.png)
+ The stats show the situation in the last six month.![openapi](./img/openapi-stats.png)
 
 **What does this number tell me?**
 
@@ -200,11 +200,11 @@ The Open Api Generation works with a mock server (According to Microsoft documen
 
 2. In your `Program.cs`, add the service extension method: `AddOpenApi();`
 
-    ![openapi](.\img\openapi-example2.png)
+    ![openapi](./img/openapi-example2.png)
 
 3. And add the middleware: `app.MapOpenApi();`
 
-    ![openapi](.\img\openapi-example3.png)
+    ![openapi](./img/openapi-example3.png)
 
 If you want to expose an Open API UI for a developer-friendly experience, you can add Scalar with `app.MapScalarApiReference()` to your web app. The UI will be available at a URL like `https://localhost:port/scalar/v1`.
 In alternative you can use SwaggerUI. 
@@ -222,7 +222,7 @@ Or both :) ...
 
 This code will generate a file called `open-api.json` in your `bin` folder — that’s your documentation.
 
-![openapi](.\img\openapi-example4.png)
+![openapi](./img/openapi-example4.png)
 
 ## What if Dependency Injection (DI) is Broken or Requires Custom Config?
 
@@ -255,7 +255,7 @@ This method wraps the potentially breaking code.
 
 In build-time, the .NET mock server will skip any code in `Program.cs` marked to be excluded.
 
-![openapi](.\img\openapi-example5.png)
+![openapi](./img/openapi-example5.png)
 
 Alternatively, you can use the `AddServiceDefaults` extension method in `Program.cs` which, per documentation, “adds common .NET Aspire services such as service discovery, resilience, health checks, and OpenTelemetry.”
 
