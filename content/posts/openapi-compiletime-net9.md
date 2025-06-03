@@ -77,19 +77,19 @@ Recently, the ApiOps approach (a GitOps methodology for APIs – see: https://le
 
 Only from NET 9 MS introduce a way to obtain the documentation also at compile time.
 
-![openapi](/img/openapi_spec_release_evolution.png)
+![openapi](img/openapi_spec_release_evolution.png)
 
 Here is the timeline chart showing the evolution of OpenAPI release approaches in the **Microsoft ecosystem.** Each line spans the years during which the approach has been in use and continues through 2025, indicating they are still relevant today.
 
 Nuget trends show a deep use of RunTime Generation in the last six months.(you can see it here - https://www.nuget.org/stats/packages/Swashbuckle.AspNetCore.Swagger?groupby=Version)
 
- ![openapi](/img/swagger-stats.png)
+ ![openapi](img/swagger-stats.png)
 
 Statistics must necessarily be interpreted: numerically it is not a very important data if we consider that part of the downloads are coming from automation pipelines and the different net version...).
 
 This number becomes important if we compare it with the OpenApi library used for the new Compile-Time feature  :
 
- The stats show the situation in the last six month.![openapi](/img/openapi-stats.png)
+ The stats show the situation in the last six month.![openapi](img/openapi-stats.png)
 
 **What does this number tell me?**
 
