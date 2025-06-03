@@ -1,7 +1,10 @@
 ---
 title: "Releasing OpenAPI Specs at Compile Time with .NET 9"
-description: "Explore different OpenAPI generation strategies and learn how to use the new .NET 9 compiletime Open Api generation feature."
-summary: In this article, we explore a new feature introduced in .NET 9 in a DevOps perspective: generating OpenAPI documentation at compile time, as part of the application’s promotion flow and why only now.
+description: >
+  Explore different OpenAPI generation strategies and learn how to use the new .NET 9 compile-time documentation feature.
+summary: >
+  In this article, we explore a new feature introduced in .NET 9 in a DevOps perspective:
+  generating OpenAPI documentation at compile time, as part of the application’s promotion flow and more.
 date: 2025-06-02
 tags: [azure, open-api, ApiOps, ADO , Azure Devops, YAML, Pipeline, net9 ]
 categories: ["Pipeline", "DevOps", "ApiOps", net9]
