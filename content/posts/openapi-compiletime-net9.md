@@ -27,7 +27,7 @@ editPost:
 
 ---
 
-## 🧠 Why Generate Build-Time OpenAPI Document Matters
+## 🧠 Why Generating OpenApi Document at Build Time Matters
 
 With .NET 9, Microsoft enables developers to:
 
@@ -65,7 +65,7 @@ From the graph we can see how the specification is improved over the years.
 
 ## 🔍 "Open-api spec *generation* approach" evolution through the years in MS ecosystem
 
-The OpenApi document generation approach of our API interface contracts has evolved over the years in the **microsoft ecosystem.**
+The OpenApi document generation approach of our API interface contracts has evolved over the years in the **Microsoft ecosystem.**
 
 Approaches to the Open Api Documentation generation:
 
