@@ -48,6 +48,11 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Copy images to static/images
+        run: |
+          rm -rf static/images
+          mkdir -p static/images
+          cp -r content/posts/images/* static/images/
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo

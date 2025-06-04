@@ -15,7 +15,7 @@ TocOpen: false
 draft: true
 weight: 5
 cover:
-    image: "../images/8rpnb0ns.png" # image path/url
+    image: "/images/openapi_at_compiletime_cover.png" # image path/url
     alt: "Releasing OpenAPI Specs at Compile Time with .NET 9" 
     caption: "Releasing OpenAPI Specs at Compile Time with .NET 9"
     relative: true # when using page bundles set this to true
