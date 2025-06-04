@@ -75,7 +75,7 @@ Approaches to the Open Api Documentation generation:
 
 Recently, the ApiOps approach (a GitOps methodology for APIs – see: https://learn.microsoft.com/en-gb/azure/architecture/example-scenario/devops/automated-api-deployments-apiops) has gained popularity.
 
-Only from NET 9 MS introduce a way to obtain the documentation also at compile time.
+Starting with .NET 9, Microsoft introduced a way to obtain documentation at compile time.
 
 ![openapi](/images/openapi_spec_release_evolution.png)
 
@@ -95,9 +95,7 @@ This number becomes important if we compare it with the OpenApi library used for
 
 *Even if the introduction of the new "OpenApi Generated at Compile-Time" feature comes late (even if there are new methodologies like ApiOps) the IT world does not keep up with the evolution of technologies and continues to be poorly updated and does not take advantage of the improvements until years later.*
 
-***Maybe this feature isn't that late after all!***
-I've finished my polemic! :D
-:arrow_down: Let's move on to the comparison of approaches...
+Perhaps this feature isn’t as delayed as initially thought! I’ve finished my critique! :D Let’s proceed to the comparison of approaches...
 
 ## 🔍 Comparing OpenAPI Doc Generation Approaches
 
@@ -173,11 +171,11 @@ I've finished my polemic! :D
 
 Typically, runtime generation of Open API documentation has some prerequisites:
 
-- Your Web API must be deployed before the code: It must be UP & RUNNING. 
+- Your Web API must be deployed before the code and must be up and running.
 
-  There's a waiting period where the app might not be immediately available due to deployment.
+  There's a waiting period during which the app might not be immediately available due to deployment.
 
-   And not always what you deploy works (e.g. missed configuration...) :) 
+   And what you deploy does not always work (e.g. missed configuration...) :) 
 
 - You must call the endpoint that exposes it, possibly from your CD-pipeline/agent in a complex security context (e.g., route openings, inbound rules.... ).
 
@@ -305,7 +303,7 @@ if (Assembly.GetEntryAssembly()?.GetName().Name != "GetDocument.Insider")
 
 After building your .NET 9 project in CI, you can publish a new artifact containing your documentation. 
 
-Please note that I use some local variables such as a variable to indicate where to retrieve the SourceCode to build (  $(SourceFolder) var).
+Please note that I use some variables such as a variable to indicate where to retrieve the SourceCode to build (  $(SourceFolder) var).
 
 ```yaml
 steps:
@@ -425,7 +423,7 @@ Just as a note: the release strategy used in the tutorial is effectively an **Op
 
 ## 🧩 Conclusion
 
-There’s much more to explore — we could dive into managing APIM policies or advanced security validation. But the purpose of this article was to showcase how this **new .NET 9 feature simplifies OpenAPI handling in DevOps workflows** .
+There is much more to explore — we could dive into managing APIM policies or advanced security validation. But the purpose of this article was to showcase how this **new .NET 9 feature simplifies OpenAPI handling in DevOps workflows** .
 
 *Why only now?*
 Microsoft's timing for introducing compile-time OpenAPI generation likely reflects both technical complexity and market readiness. Historically, Microsoft prioritizes stability and gradual innovation, especially in enterprise contexts. Additionally, the increased maturity of DevOps practices, community feedback, and widespread adoption of standardized API governance models (like ApiOps) probably contributed to the timing. Thus, even though this feature might seem late, it aligns well with the broader industry's readiness to embrace such changes.
