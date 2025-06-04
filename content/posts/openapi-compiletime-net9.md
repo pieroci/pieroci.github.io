@@ -268,16 +268,7 @@ public class BuildTimeOpenApiGeneration
 {
     public static bool IsOpenApiMockServer()
     {
-        bool isOpenApiGeneratedAtCompileTime = false;
-        try
-        {
-            isOpenApiGeneratedAtCompileTime = Assembly.GetEntryAssembly()?.GetName().Name == "GetDocument.Insider";
-        }
-        catch
-        {
-            isOpenApiGeneratedAtCompileTime = false;
-        }
-        return isOpenApiGeneratedAtCompileTime;
+        return Assembly.GetEntryAssembly()?.GetName().Name =="GetDocument.Insider";
     }
 }
 ```
@@ -291,11 +282,13 @@ In build-time, the .NET mock server will skip any code in `Program.cs` marked to
 Alternatively, you can use the `AddServiceDefaults` extension method in `Program.cs` which, per documentation, “adds common .NET Aspire services such as service discovery, resilience, health checks, and OpenTelemetry.”
 
 ```csharp
-if (Assembly.GetEntryAssembly()?.GetName().Name != "GetDocument.Insider")
+if (BuildTimeOpenApiGeneration.IsOpenApiMockServer())
 {
     builder.AddServiceDefaults();
 }
 ```
+
+
 
 ## CI Step
 
