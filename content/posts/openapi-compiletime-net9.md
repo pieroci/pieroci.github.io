@@ -187,7 +187,7 @@ If you’re using .NET 9 Web API, in some scenarios — instead of using an ApiO
 
 The Open Api Generation works with a mock server (According to Microsoft documentation):
 
-> "Build-time OpenAPI document generation functions by launching the app’s entry point with a mock server implementation. A mock server is required to produce accurate OpenAPI documents because all information in the OpenAPI document can't be statically analyzed."
+> "Build-time OpenAPI document generation functions by launching the app’s entry point with a mock server implementation. A **mock server** is required to produce accurate OpenAPI documents because all information in the OpenAPI document can't be statically analyzed."
 
 
 
@@ -206,9 +206,9 @@ The Open Api Generation works with a mock server (According to Microsoft documen
 
     ![openapi](/images/openapi-example3.png)
 
-If you want to expose an Open API UI for a developer-friendly experience, you can add Scalar with `app.MapScalarApiReference()` to your web app. The UI will be available at a URL like `https://localhost:port/scalar/v1`.
-In alternative you can use SwaggerUI. 
-Or both :) ...  
+If you want to expose an Open API UI for a developer-friendly experience, you can add Scalar. Add the nuget package `*Scalar.AspNetCore*`  and this line of code on your program.cs `app.MapScalarApiReference()`. The UI will be available at a URL like `https://localhost:port/scalar/v1`.
+In alternative you can use SwaggerUI : `Swashbuckle.AspNetCore.SwaggerUi` package and add the middleware on program.cs with this line of code `app.UseSwaggerUI(options =>{options.SwaggerEndpoint("/openapi/v1.json", "v1");});` reachable at the url `https://localhost:port/swagger`.
+You can use both if you want :) ...  
 
 4. Add this to your `.csproj` file:
 
@@ -224,13 +224,46 @@ This code will generate a file called `open-api.json` in your `bin` folder — t
 
 ![openapi](/images/openapi-example4.png)
 
-## What if Dependency Injection (DI) is Broken or Requires Custom Config?
+## What if Dependency Injection (DI) is Broken , misconfigured or Requires Custom Config?
 
-If that’s the case, it won’t work...  :(
+If you don't use correcly the DI pattern the compile time Open api generation won’t work...  :(
+**You can see the sum of several errors in the code below and their explanation:**
 
-You’ll need to exclude the problematic code in `Program.cs`. 
+```csharp
+//Program.cs
+var builder = WebApplication.CreateBuilder(args);
+var connectionString = Environment.GetEnvironmentVariable("MyEnvVar"); //Maybe in your local it works but in the CI phase the Agent does not have the environment variable and the mock server will not be able to generate the documentation: you should avoid conditioning the Program, instead you could pass IConfiguration to your class
+builder.Services.AddScoped(MyService(connectionString)); //Use the interface "builder.Services.AddScoped<IMyService, MyService>()":  DI is important not only for the mock server but also for unit tests.
 
-How we can do it? Here's a static method I created in a library:
+
+```
+
+
+
+```csharp
+//your service class
+public class MyService
+{
+    public string _myConnectionString;
+
+    public SQLServiceClientFactory(string myConnectionString)
+    {
+        //You are not using DI but you are conditioning and validating the service by inserting an exception if the passed parameter is not consistent with what is expected. Sure, it works locally ... an old story ... but when the mock server will try to generate the documentation it will execute the service constructor and will not be able to generate the documentation at Compile Time. I'll just add that you can use IConfiguration in the constructor: you just have to want it!
+        
+		if (string.IsNullOrWhiteSpace(myConnectionString)) 
+        {
+            throw new Exception("Give me the connstring dude!");
+        }
+        _myConnectionString = myConnectionString;
+    }
+...
+```
+
+I don't want to give you a lesson in Clean code in this article but just mention some real problems that the mock server will have if you don't use DI correctly or perform misconfiguration.
+
+***But what if I still want to continue writing bad code?***
+
+You’ll need to exclude the problematic code in `Program.cs`. You can do it using a static method like that:
 
 ```csharp
 public class BuildTimeOpenApiGeneration
@@ -268,8 +301,11 @@ if (Assembly.GetEntryAssembly()?.GetName().Name != "GetDocument.Insider")
 
 ## CI Step
 
-After building your .NET 9 project in CI, you can publish a new artifact containing your documentation.
-Please note that I use some local variables such as a variable to indicate where to retrieve the SourceCode to build...
+*The below template it's an ADO yaml Pipeline.*
+
+After building your .NET 9 project in CI, you can publish a new artifact containing your documentation. 
+
+Please note that I use some local variables such as a variable to indicate where to retrieve the SourceCode to build (  $(SourceFolder) var).
 
 ```yaml
 steps:
@@ -300,9 +336,11 @@ steps:
 
 ## CD  Step 
 
+
+*The below template it's an ADO yaml Pipeline.*
 In this example, deployment is to Azure API Management Service (apim). The shell script is called from a DevOps task. Here's a `template.yaml` and shell script. But remember that you could release your documentation anywhere. :)
 **Open Api is a standard!**
-(aH! By default, the standard used is open api spec v.3 (https://spec.openapis.org/oas/v3.0.0), but you can change it! see https://learn.microsoft.com/en-gb/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-9.0&tabs=visual-studio%2Cvisual-studio-code#customize-the-openapi-version-of-a-generated-document)
+(By default, the standard used is open api spec v.3 (https://spec.openapis.org/oas/v3.0.0), but you can change it! see https://learn.microsoft.com/en-gb/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-9.0&tabs=visual-studio%2Cvisual-studio-code#customize-the-openapi-version-of-a-generated-document)
 
 ```yaml
 parameters:
@@ -383,7 +421,7 @@ fi
 az apim api import     --path $apiPath     --resource-group $resourceGroupName     --service-name $apimServiceName     --api-id $apiId     --display-name $apiId     --specification-format $specificationFormat     --specification-path $specificationPath     --service-url $webServiceUrl
 ```
 
-
+Just as a note: the release strategy used in the tutorial is effectively an **Open Api As Artifact** strategy.
 
 ## 🧩 Conclusion
 
