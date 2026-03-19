@@ -30,7 +30,7 @@ editPost:
 
 ## 🧠 Preface
 
-While studying **discrete mathematics** for an exam, I found myself making a connection that felt unexpectedly natural.
+While studying **Mathematical logic** for an exam, I found myself making a connection that felt unexpectedly natural.
 
 The more I reflected on the **principle of mathematical induction**, the more it started to resemble the way we reason about **DevOps pipelines**.
 
@@ -471,6 +471,6 @@ In both worlds, the same pattern appears:
 2. preserve validity at each step;
 3. conclude that the whole chain is valid.
 
-That is why, while studying discrete mathematics, I could not help thinking that **induction belongs in DevOps** — not as a theorem to deploy, of course, but as a mental model for correctness, discipline, and elegant system design.
+That is why, while studying mathematical logic, I could not help thinking that **induction belongs in DevOps** — not as a theorem to deploy, of course, but as a mental model for correctness, discipline, and elegant system design.
 
 ---
