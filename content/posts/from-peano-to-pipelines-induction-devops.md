@@ -47,6 +47,8 @@ We define an initial valid state, then design each pipeline stage so that it pre
 
 That is exactly what made me think this article was worth writing.
 
+{{< figure src="/images/peano_devops_cover.png" alt="Mathematical induction meets DevOps pipelines" caption="From Peano's axioms to pipeline stages: the same structural pattern." >}}
+
 ---
 
 ## 👽 Peano, an Alien, and the Grammar of Infinity
@@ -76,6 +78,8 @@ Very roughly speaking, they tell us that:
 - there is a starting element (commonly \(0\));
 - every natural number has a successor;
 - and properties that hold at the beginning and are preserved by the successor hold for all natural numbers.
+
+{{< figure src="/images/peano_alien_story.png" alt="An alien contemplating mathematical induction and DevOps pipelines" caption="Starting from \(0\), following the successor rule, reasoning for all \(n\)." >}}
 
 A classical induction schema is:
 
@@ -207,6 +211,8 @@ $$
 \forall n \in \mathbb{N},\; Valid(state_n)
 $$
 
+{{< figure src="/images/induction_pipeline_flow.png.png" alt="Induction flow P(0) to P(n) mapped to Source, Build, Test, Package, Deploy" caption="The inductive structure: each pipeline stage preserves the validity established by the previous one." >}}
+
 ---
 
 ## 🏗️ Pipeline Invariants: The Real Engineering Value
@@ -272,6 +278,8 @@ This is the heart of the classic DevOps principle:
 ---
 
 ## 🚀 Induction Across Environments
+
+{{< figure src="/images/artifact_promotion_induction.png" alt="Artifact promotion across Dev, Test, UAT and Prod environments" caption="The same artifact, validated once, promoted consistently across every environment." >}}
 
 Let us take a common release chain:
 
