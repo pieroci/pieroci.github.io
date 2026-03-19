@@ -2,29 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Pieroci in DevOps</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://pieroci.github.io/categories/</link>
     <description>Recent content in Categories on Pieroci in DevOps</description>
     <image>
       <title>Pieroci in DevOps</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://pieroci.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://pieroci.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.129.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pieroci.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DevOps</title>
-      <link>http://localhost:1313/categories/devops/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/devops/</guid>
+      <link>https://pieroci.github.io/categories/devops/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/categories/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mathematics</title>
+      <link>https://pieroci.github.io/categories/mathematics/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/categories/mathematics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pipeline</title>
+      <link>https://pieroci.github.io/categories/pipeline/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/categories/pipeline/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ApiOps</title>
+      <link>https://pieroci.github.io/categories/apiops/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/categories/apiops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Net9</title>
+      <link>https://pieroci.github.io/categories/net9/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/categories/net9/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://pieroci.github.io/categories/git/</link>
+      <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/categories/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Terraform</title>
-      <link>http://localhost:1313/categories/terraform/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/terraform/</guid>
+      <link>https://pieroci.github.io/categories/terraform/</link>
+      <pubDate>Tue, 23 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/categories/terraform/</guid>
       <description></description>
     </item>
   </channel>

@@ -15,6 +15,7 @@ minifyOutput = true
 
 [params]
 env = "production"
+math = true
 title = "Pieroci in DevOps"
 description = "How laziness can help you to automate everything"
 keywords = [ "Blog", "Portfolio", "PaperMod" ]
@@ -133,3 +134,10 @@ weight = 30
 
 [markup.highlight]
 noClasses = false
+
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block  = [["$$", "$$"]]
+    inline = [["\\(", "\\)"]]
+

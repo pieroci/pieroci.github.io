@@ -2,78 +2,162 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Pieroci in DevOps</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://pieroci.github.io/tags/</link>
     <description>Recent content in Tags on Pieroci in DevOps</description>
     <image>
       <title>Pieroci in DevOps</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://pieroci.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://pieroci.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.129.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Azure</title>
-      <link>http://localhost:1313/tags/azure/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/azure/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pieroci.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Azure Devops</title>
-      <link>http://localhost:1313/tags/azure-devops/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/azure-devops/</guid>
+      <link>https://pieroci.github.io/tags/azure-devops/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/azure-devops/</guid>
       <description></description>
     </item>
     <item>
-      <title>Docs</title>
-      <link>http://localhost:1313/tags/docs/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/docs/</guid>
+      <title>CI/CD</title>
+      <link>https://pieroci.github.io/tags/ci/cd/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/ci/cd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DevOps</title>
+      <link>https://pieroci.github.io/tags/devops/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Discrete-Math</title>
+      <link>https://pieroci.github.io/tags/discrete-math/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/discrete-math/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Induction</title>
+      <link>https://pieroci.github.io/tags/induction/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/induction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mathematics</title>
+      <link>https://pieroci.github.io/tags/mathematics/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/mathematics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Peano</title>
+      <link>https://pieroci.github.io/tags/peano/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/peano/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pipeline</title>
+      <link>https://pieroci.github.io/tags/pipeline/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/pipeline/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ADO</title>
+      <link>https://pieroci.github.io/tags/ado/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/ado/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ApiOps</title>
+      <link>https://pieroci.github.io/tags/apiops/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/apiops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Azure</title>
+      <link>https://pieroci.github.io/tags/azure/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/azure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Net9</title>
+      <link>https://pieroci.github.io/tags/net9/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/net9/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open-Api</title>
+      <link>https://pieroci.github.io/tags/open-api/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/open-api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>YAML</title>
+      <link>https://pieroci.github.io/tags/yaml/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/yaml/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://pieroci.github.io/tags/git/</link>
+      <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Semantic Version</title>
+      <link>https://pieroci.github.io/tags/semantic-version/</link>
+      <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/semantic-version/</guid>
       <description></description>
     </item>
     <item>
       <title>Managedidentity</title>
-      <link>http://localhost:1313/tags/managedidentity/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/managedidentity/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>PaperMod</title>
-      <link>http://localhost:1313/tags/papermod/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/papermod/</guid>
+      <link>https://pieroci.github.io/tags/managedidentity/</link>
+      <pubDate>Tue, 23 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/managedidentity/</guid>
       <description></description>
     </item>
     <item>
       <title>Powershell and Terraform</title>
-      <link>http://localhost:1313/tags/powershell-and-terraform/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/powershell-and-terraform/</guid>
+      <link>https://pieroci.github.io/tags/powershell-and-terraform/</link>
+      <pubDate>Tue, 23 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/powershell-and-terraform/</guid>
       <description></description>
     </item>
     <item>
       <title>Run Query With Terraform</title>
-      <link>http://localhost:1313/tags/run-query-with-terraform/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/run-query-with-terraform/</guid>
+      <link>https://pieroci.github.io/tags/run-query-with-terraform/</link>
+      <pubDate>Tue, 23 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/run-query-with-terraform/</guid>
       <description></description>
     </item>
     <item>
       <title>Sqlserver</title>
-      <link>http://localhost:1313/tags/sqlserver/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/sqlserver/</guid>
+      <link>https://pieroci.github.io/tags/sqlserver/</link>
+      <pubDate>Tue, 23 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/sqlserver/</guid>
       <description></description>
     </item>
     <item>
       <title>Terraform</title>
-      <link>http://localhost:1313/tags/terraform/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/terraform/</guid>
+      <link>https://pieroci.github.io/tags/terraform/</link>
+      <pubDate>Tue, 23 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/tags/terraform/</guid>
       <description></description>
     </item>
   </channel>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Pipeline on Pieroci in DevOps</title>
+    <link>https://pieroci.github.io/categories/pipeline/</link>
+    <description>Recent content in Pipeline on Pieroci in DevOps</description>
+    <image>
+      <title>Pieroci in DevOps</title>
+      <url>https://pieroci.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://pieroci.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.129.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://pieroci.github.io/categories/pipeline/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Releasing OpenAPI Specs at Compile Time with .NET 9</title>
+      <link>https://pieroci.github.io/posts/openapi-compiletime-net9/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/posts/openapi-compiletime-net9/</guid>
+      <description>Explore different OpenAPI generation strategies and learn how to use the new .NET 9 compile-time documentation feature.
+</description>
+    </item>
+    <item>
+      <title>From Peano to Pipelines: Why Mathematical Induction Belongs in DevOps</title>
+      <link>https://pieroci.github.io/posts/from-peano-to-pipelines-induction-devops/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://pieroci.github.io/posts/from-peano-to-pipelines-induction-devops/</guid>
+      <description>A technical reflection on how mathematical induction, starting from Peano’s view of the natural numbers, offers a surprisingly elegant way to reason about CI/CD pipelines, artifact promotion, and DevOps invariants.
+</description>
+    </item>
+  </channel>
+</rss>
